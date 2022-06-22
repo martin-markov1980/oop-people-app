@@ -17,7 +17,7 @@ class Container
     $this->db_config = $db_config;
   }
 
-  private function getPDO() {
+  public function getPDO() {
     if ($this->pdo === null) {
       $this->pdo = new \PDO($this->db_config['db_dsn'], $this->db_config['db_user'], $this->db_config['db_pass']);
     }
@@ -39,9 +39,15 @@ class Container
     return $this->all_people;
   }
 
-  public function getHi()
+  /**
+   * @param $id
+   * @return Person
+   */
+  public function getSinglePerson($id)
   {
-    return 'Hi';
+    $person = new GetSinglePerson($id, $this->getPDO());
+
+    return $person->fetchSinglePerson();
   }
 
 }
