@@ -8,6 +8,18 @@ use Service\Container;
  */
 $container = new Container($db_config);
 $all_people = $container->getAllPeople();
+
+if ($_SERVER['REQUEST_METHOD'] == 'POST') {
+
+  $id = $_POST['id'];
+  $path = $_POST['path'];
+
+  $container->deleteSinglePerson($id, $path);
+
+  header("Location: /");
+
+}
+
 ?>
 
 <?php include 'layout/header.php'; ?>

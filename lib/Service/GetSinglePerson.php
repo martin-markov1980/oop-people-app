@@ -10,7 +10,7 @@ class GetSinglePerson
 
   private $pdo;
 
-  public function __construct($id, \PDO $pdo)
+  public function __construct(\PDO $pdo, $id)
   {
     $this->id = $id;
     $this->pdo = $pdo;

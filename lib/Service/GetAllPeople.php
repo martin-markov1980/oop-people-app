@@ -8,17 +8,18 @@ class GetAllPeople
 {
   private $pdo;
 
+  private $people = [];
+
   public function __construct(\PDO $pdo)
   {
     $this->pdo = $pdo;
   }
 
   /**
-   * @return array
+   * @return Person[]
    */
   public function fetchAllPeople()
   {
-    $people = [];
     $pdo = $this->pdo;
     $statement = $pdo->prepare('SELECT * FROM people_data');
     $statement->execute();
@@ -32,10 +33,15 @@ class GetAllPeople
       $person_obj->setSex($person['sex']);
       $person_obj->setAvatar($person['icon']);
 
-      $people[] = $person_obj;
+      $this->people[] = $person_obj;
     }
 
-    return $people;
+    return $this->people;
+  }
+
+  public function getPeopleCount()
+  {
+    return count($this->fetchAllPeople());
   }
 
 }
