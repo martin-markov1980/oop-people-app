@@ -1,4 +1,4 @@
-# oop-people-app
+# php-oop-people-app
 
 Motivation:
 After completing the OOP PHP for beginners course at https://drupalize.me/topic/object-oriented-php
