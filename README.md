@@ -13,8 +13,9 @@ How to setup the app locally:
  - Clone the repo to your local
  - cd to the php-list-people-app folder and run:
  ddev start
- - From the project root folder run: ddev composer install
- - import the database with:
+ - From the project root folder run:
+ ddev composer install
+ - to play with some ready data, from the root folder import the database with:
  ddev import-db --src=people.sql
  - to open the app in your browser run:
  ddev launch
